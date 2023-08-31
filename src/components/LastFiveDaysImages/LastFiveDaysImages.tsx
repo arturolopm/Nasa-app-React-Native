@@ -6,7 +6,7 @@ import { type PostImage as PostImageTypes } from '../../types'
 const LastFiveDaysImages: FC<{ postImages?: PostImageTypes[] }> = ({ postImages }) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Last 5 Days</Text>
+            <Text style={styles.title}>Last 30 Days</Text>
             <ScrollView style={styles.content}>
                 {postImages?.map(postImage => (
                     <PostImage key={`${postImage.title}`} {...postImage} />
@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
         marginBottom: 18
     },
     content: {
-        paddingHorizontal: 24
+        paddingHorizontal: 24,
+        flexDirection: "column-reverse"
     }
 })
 
