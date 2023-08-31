@@ -25,7 +25,7 @@ const Home = () => {
             try {
                 const date = new Date()
                 const todaysDate = format(date, 'yyyy-MM-dd')
-                const fiveDaysAgoDate = format(sub(date, { days: 5 }), 'yyyy-MM-dd')
+                const fiveDaysAgoDate = format(sub(date, { days: 30 }), 'yyyy-MM-dd')
                 const lastFiveImagesResponse = await fetchApi(`&start_date=${fiveDaysAgoDate}&end_date=${todaysDate}`)
                 setLastFiveDaysImages(lastFiveImagesResponse)
 
@@ -50,7 +50,8 @@ const Home = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingHorizontal: 16
+        paddingHorizontal: 16,
+        backgroundColor: 'rgba(7,26,96,255)'
     }
 })
 
