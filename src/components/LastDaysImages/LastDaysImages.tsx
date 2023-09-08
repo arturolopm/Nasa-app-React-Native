@@ -3,12 +3,12 @@ import { Text, View, StyleSheet, ScrollView } from "react-native"
 import PostImage from '../PostImage'
 import { type PostImage as PostImageTypes } from '../../types'
 
-const LastFiveDaysImages: FC<{ postImages?: PostImageTypes[] }> = ({ postImages }) => {
+const LastDaysImages: FC<{ postImages?: PostImageTypes[] }> = ({ postImages }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Last 30 Days</Text>
             <ScrollView style={styles.content}>
-                {postImages?.map(postImage => (
+                {postImages?.reverse().map(postImage => (
                     <PostImage key={`${postImage.title}`} {...postImage} />
                 ))}
             </ScrollView>
@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     },
     content: {
         paddingHorizontal: 24,
-        flexDirection: "column-reverse"
+
     }
 })
 
-export default LastFiveDaysImages
+export default LastDaysImages
